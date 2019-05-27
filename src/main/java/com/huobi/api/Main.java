@@ -26,13 +26,17 @@ import com.huobi.response.TradeResponse;
 
 public class Main {
 
-    static final String API_KEY = "KEY";
-    static final String API_SECRET = "SECRET";
+    static final String API_KEY = "c9300e58-993df693-8a919b18-256e4";
+    static final String API_SECRET = "32ef068b-23627a73-19bcb3f1-d0359";
   
     
     public static void main(String[] args) {
         try {
-            apiSample();
+            HuobiApiClient client = new HuobiApiClient(API_KEY, API_SECRET);
+            TimestampResponse timestamp = client.timestamp();
+            print(timestamp);
+            AccountsResponse accounts = client.accounts();
+            print(accounts);
         } catch (ApiException e) {
             System.err.println("API Error! err-code: " + e.getErrCode() + ", err-msg: " + e.getMessage());
             e.printStackTrace();
@@ -41,7 +45,7 @@ public class Main {
     
     static void apiSample() {
         // create ApiClient using your api key and api secret:
-        ApiClient client = new ApiClient(API_KEY, API_SECRET);
+        HuobiApiClient client = new HuobiApiClient(API_KEY, API_SECRET);
         // get symbol list:
         print(client.getSymbols());
 

@@ -50,6 +50,12 @@
             <version>0.9.0</version>
         </dependency>
     </dependencies>
-
-
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<url>
+                http://47.100.199.166:8080/nexus/content/repositories/releases/
+            </url>
+        </repository>
+    </distributionManagement>
 </project>

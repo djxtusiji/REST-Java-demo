@@ -80,7 +80,7 @@ import okhttp3.Response;
  * @Date 2018/1/14
  * @Time 16:02
  */
-public class ApiClient {
+public class HuobiApiClient {
 
     static final int CONN_TIMEOUT = 5;
     static final int READ_TIMEOUT = 5;
@@ -103,7 +103,7 @@ public class ApiClient {
      * @param accessKeyId     AccessKeyId
      * @param accessKeySecret AccessKeySecret
      */
-    public ApiClient(String accessKeyId, String accessKeySecret) {
+    public HuobiApiClient(String accessKeyId, String accessKeySecret) {
         this.accessKeyId = accessKeyId;
         this.accessKeySecret = accessKeySecret;
         this.assetPassword = null;
@@ -116,7 +116,7 @@ public class ApiClient {
      * @param accessKeySecret AccessKeySecret
      * @param assetPassword   AssetPassword
      */
-    public ApiClient(String accessKeyId, String accessKeySecret, String assetPassword) {
+    public HuobiApiClient(String accessKeyId, String accessKeySecret, String assetPassword) {
         this.accessKeyId = accessKeyId;
         this.accessKeySecret = accessKeySecret;
         this.assetPassword = assetPassword;
@@ -138,8 +138,7 @@ public class ApiClient {
      * 查询所有账户信息
      *
      * @return List of accounts.
-     */
-    public List<Account> getAccounts() {
+     */public List<Account> getAccounts() {
         ApiResponse<List<Account>> resp =
                 get("/v1/account/accounts", null, new TypeReference<ApiResponse<List<Account>>>() {
                 });
